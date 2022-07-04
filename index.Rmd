@@ -1,5 +1,5 @@
 ---
-title: "SBMPTN 2022 (under construction)"
+title: "SBMPTN 2022"
 author: "Subbagian Registrasi"
 output: 
   flexdashboard::flex_dashboard:
@@ -102,6 +102,20 @@ valueBox(
 )
 ```
 
+### penerima_kip {.value-box}
+
+```{r}
+#data <- filter(db, beasiswa == "KIP")
+valueBox(
+  value = paste(format(0, big.mark = " "), " (", 
+                round(0/nrow(db)*100, 0), "%)",
+                sep = ""),
+  caption = "Penerima KIP",
+  icon = "fas fa-hand-holding-usd",
+  color = "green"
+)
+```
+
 Row
 ---
 
@@ -127,7 +141,7 @@ valueBox(
   value = paste(format(belum, big.mark = " "), " (", 
                 round(belum/nrow(db) * 100, 0), "% )",
                 sep = " "),
-  caption = "Tidak Registrasi",
+  caption = "Tidak Registrasi Berkas",
   icon = "fas fa-file-upload",
   color = "brown"
 )
@@ -141,11 +155,26 @@ valueBox(
   value = paste(format(nim, big.mark = " "), " (", 
                 round(nim/nrow(db) * 100, 0), "% )",
                 sep = " "),
-  caption = "Mahasiswa Baru",
+  caption = "Registrasi UKT",
   icon = "fas fa-thumbs-up",
   color = "cornflowerblue"
 )
 ```
+
+### tidak_ukt {.value-box}
+
+```{r}
+tdk_bayar <- sudah - nim
+valueBox(
+  value = paste(format(tdk_bayar, big.mark = " "), " (", 
+                round(tdk_bayar/nrow(db) * 100, 0), "% )",
+                sep = " "),
+  caption = "Belum Registrasi UKT",
+  icon = "fas fa-file-upload",
+  color = "brown"
+)
+```
+
 
 Row
 ---
@@ -251,7 +280,7 @@ Row
 ### **Statistik Keketatan Program Studi**
 
 ```{r}
-data <- read_excel("G:/My Drive/#PMB/2021/02_SBMPTN/registrasi/Statistik_Keketatan_Prodi.xlsx")
+data <- read_excel("G:/My Drive/#PMB/2022/02_SBMPTN/311_Statistik_Keketatan_Prodi.xlsx")
 data <- data[,-2]
 
 names(data) <- c("No", "Program Studi", "Peminat", "Diterima", "Keketatan (%)",
@@ -264,11 +293,13 @@ kable(data, row.names = F) %>%
 
 ```
 
-Row
----
+
+```{r eval=FALSE, fig.height=10, fig.width=8, message=FALSE, warning=FALSE, include=FALSE}
+#Row
+#---
 
 ### **Sebaran Nilai UTBK calon mahasiswa Untirta**
-```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height=10, fig.width=8}
+
 raw <- read_excel("G:/My Drive/Dian/R/Siti Arita Novia/sbmptn.xlsx")
 n = nrow(raw)
 
@@ -420,10 +451,10 @@ kable(data, row.names = F) %>%
   pack_rows("Hukum", 1, 1, label_row_css = "background-color: #666; color: #fff;") %>%
   pack_rows("Keguruan dan Ilmu Pendidikan", 2, 19, label_row_css = "background-color: #666; color: #fff;") %>%
   pack_rows("Teknik", 20, 26, label_row_css = "background-color: #666; color: #fff;") %>%
-  pack_rows("Pertanian", 27, 30, label_row_css = "background-color: #666; color: #fff;") %>%
-  pack_rows("Ekonomi dan Bisnis", 31, 34, label_row_css = "background-color: #666; color: #fff;") %>%
-  pack_rows("Ilmu Sosial dan Ilmu Politik", 35, 37, label_row_css = "background-color: #666; color: #fff;") %>%
-  pack_rows("Kedokteran", 38, 41, label_row_css = "background-color: #666; color: #fff;")
+  pack_rows("Pertanian", 27, 31, label_row_css = "background-color: #666; color: #fff;") %>%
+  pack_rows("Ekonomi dan Bisnis", 32, 35, label_row_css = "background-color: #666; color: #fff;") %>%
+  pack_rows("Ilmu Sosial dan Ilmu Politik", 36, 38, label_row_css = "background-color: #666; color: #fff;") %>%
+  pack_rows("Kedokteran", 39, 42, label_row_css = "background-color: #666; color: #fff;")
 
 
 ```
