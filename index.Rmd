@@ -282,6 +282,11 @@ Row
 ```{r}
 data <- read_excel("G:/My Drive/#PMB/2022/02_SBMPTN/311_Statistik_Keketatan_Prodi.xlsx")
 data <- data[,-2]
+data$keketatan <- round(data$keketatan, 2)
+data$pers_diterima_p1 <- round(data$pers_diterima_p1, 2)
+data$pers_diterima_p2 <- round(data$pers_diterima_p2, 2)
+data$pers_peminat_p1 <- round(data$pers_peminat_p1, 2)
+data$pers_peminat_p2 <- round(data$pers_peminat_p2, 2)
 
 names(data) <- c("No", "Program Studi", "Peminat", "Diterima", "Keketatan (%)",
                  "Peminat", "% Peminat", "Diterima", "% Diterima", "Peminat", "% Peminat",
