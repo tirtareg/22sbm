@@ -280,7 +280,7 @@ Row
 ### **Statistik Keketatan Program Studi**
 
 ```{r}
-data <- read_excel("G:/My Drive/#PMB/2022/02_SBMPTN/22sbm/311_Statistik_Keketatan_Prodi.xlsx")
+data <- read_excel("311_Statistik_Keketatan_Prodi.xlsx")
 data <- data[,-2]
 data$keketatan <- round(data$keketatan, 2)
 data$pers_diterima_p1 <- round(data$pers_diterima_p1, 2)
@@ -493,7 +493,7 @@ Mahasiswa Baru
 row
 ---
 
-### Berikut adalah daftar nama mahasiswa baru Universitas Sultan Ageng Tirtayasa jalur SBMPTN (**gunakan Search untuk pencarian cepat**).
+### Berikut adalah daftar nama mahasiswa baru Universitas Sultan Ageng Tirtayasa jalur SBMPTN sampai `r format(Sys.time(), "%d %B %Y")` pukul `r format(Sys.time(), "%X")` (**gunakan Search untuk pencarian cepat**).
 
 ```{r}
 # `r format(Sys.time(), "%d %B %Y")` pukul `r format(Sys.time(), "%X")`
