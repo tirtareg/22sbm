@@ -280,7 +280,7 @@ Row
 ### **Statistik Keketatan Program Studi**
 
 ```{r}
-data <- read_excel("G:/My Drive/#PMB/2022/02_SBMPTN/311_Statistik_Keketatan_Prodi.xlsx")
+data <- read_excel("G:/My Drive/#PMB/2022/02_SBMPTN/22sbm/311_Statistik_Keketatan_Prodi.xlsx")
 data <- data[,-2]
 data$keketatan <- round(data$keketatan, 2)
 data$pers_diterima_p1 <- round(data$pers_diterima_p1, 2)
