@@ -91,9 +91,9 @@ valueBox(
 ### kip {.value-box}
 
 ```{r}
-data <- filter(db, beasiswa == "KIP")
+
 valueBox(
-  value = paste(format(nrow(data), big.mark = " "), " (", 
+  value = paste(format(655, big.mark = " "), " (", 
                 round(nrow(data)/nrow(db)*100, 0), "%)",
                 sep = ""),
   caption = "Pendaftar KIP",
@@ -105,10 +105,10 @@ valueBox(
 ### penerima_kip {.value-box}
 
 ```{r}
-#data <- filter(db, beasiswa == "KIP")
+data <- filter(db, beasiswa == "KIP" & nim == "diterima")
 valueBox(
-  value = paste(format(0, big.mark = " "), " (", 
-                round(0/nrow(db)*100, 0), "%)",
+  value = paste(format(nrow(data), big.mark = " "), " (", 
+                round(nrow(data)/nrow(db)*100, 0), "%)",
                 sep = ""),
   caption = "Penerima KIP",
   icon = "fas fa-hand-holding-usd",
