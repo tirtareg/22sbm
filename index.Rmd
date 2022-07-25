@@ -300,7 +300,7 @@ library(downloadthis)
 
 data %>%
   download_this(
-    output_name = "keketatan_prodi_smmptn_2022",
+    output_name = "keketatan_prodi",
     output_extension = ".xlsx",
     button_label = "Download data",
     button_type = "warning",
